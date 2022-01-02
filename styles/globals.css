@@ -1,16 +1,182 @@
-html,
+@import '../node_modules/antd/dist/antd.css';
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #F0F2F5;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.App {
+  text-align: center;
 }
 
-* {
-  box-sizing: border-box;
+.col {
+  margin-bottom: 16px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.header {
+  height: 7vh;
+  background: white;
+}
+
+.footer {
+  height: 16vh;
+  background: #003566;
+  text-align: center;
+  color: white;
+}
+
+.header-navigation {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.social-icons-container {
+  flex-grow: 1;
+}
+
+.twitter-icon, .medium-icon {
+  float: right;
+}
+
+.twitter-icon svg, .medium-icon svg {
+  font-size: 24px;
+  margin-left: 8px;
+}
+
+.twitter-icon svg {
+  color: #1DA1F2;
+}
+
+.medium-icon svg {
+  color: black;
+}
+
+.main-content {
+  height: 77vh;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.switch-mode {
+  height: 32px;
+  margin-left: 16px;
+  margin-right: 16px;
+  background-color: #003566;
+}
+
+.switch-mode .ant-switch-handle {
+  top: 7px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.stage-tag {
+  cursor: pointer;
+}
+
+.stage-popover {
+  width: 200px;
+}
+
+.stage-popover .ant-popover-content .ant-popover-inner .ant-popover-inner-content {
+  color: white;
+}
+
+.tip-container .ant-image {
+  display: block;
+}
+
+.revue-form-field {
+  height: 38px;
+  width: 300px;
+  border: none;
+  outline: none;
+  color: black;
+  padding-left: 12px;
+}
+
+#member_submit {
+  height: 38px;
+  background: white;
+  color: #003566;
+  border: none;
+  margin-left: 2px;
+  outline: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.revue-form-footer {
+  margin-top: 12px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .ant-switch-inner {
+    visibility: hidden;
+  }
+
+  .revue-form-field {
+    width: 100%;
+    height: 30px;
+  }
+
+  #member_submit {
+    width: 100%;
+    height: 30px;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .revue-form-footer {
+    font-size: 10px;
+  }
+
+  .main-content {
+    height: 69vh;
+  }
+
+  .footer {
+    height: 24vh;
+    padding-top: 8px;
+  }
 }
