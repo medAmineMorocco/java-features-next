@@ -2,7 +2,7 @@ import {useState} from "react";
 import Head from 'next/head'
 import {Layout, AutoComplete, Switch, Select, Card, Col, Row, Tag, Avatar, Image, Tooltip, Popover, Modal, Empty, Spin, Result} from 'antd';
 import {TwitterOutlined, MediumOutlined, LinkOutlined, PictureOutlined} from '@ant-design/icons';
-import {javaVersions, versionsColors, groupBy, stagesColors, stagesDefinitions, renderTitle, renderItem} from "./data";
+import {javaVersions, versionsColors, groupBy, stagesColors, stagesDefinitions, renderTitle, renderItem} from "../utils/data";
 import {useQuery} from "react-query";
 
 
@@ -107,8 +107,8 @@ export default function Home() {
                               <Tag color={versionsColors[version]}>Java {version}</Tag>
                           </>}
                           actions={[
-                              ...tipLink ? [<Tooltip title="Explanation"><PictureOutlined onClick={() => handleTipVisible(tipLink)}/></Tooltip>] : [],
-                              <Tooltip title="Official Documentation"><a href={link} target="_blank" rel="noreferrer"><LinkOutlined /></a></Tooltip>,
+                              ...tipLink ? [<Tooltip title="Explanation" key={0}><PictureOutlined onClick={() => handleTipVisible(tipLink)}/></Tooltip>] : [],
+                              <Tooltip title="Official Documentation" key={1}><a href={link} target="_blank" rel="noreferrer"><LinkOutlined /></a></Tooltip>,
                           ]}
                           bodyStyle={{height: 'fit-content', padding: '12px', fontFamily: 'Verdana', fontsize: '16px'}}
                     >
