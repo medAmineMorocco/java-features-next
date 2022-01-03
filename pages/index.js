@@ -1,9 +1,11 @@
 import {useState} from "react";
 import Head from 'next/head'
-import {Layout, AutoComplete, Switch, Select, Card, Col, Row, Tag, Avatar, Image, Tooltip, Popover, Modal, Empty, Spin, Result} from 'antd';
+import {Layout, AutoComplete, Switch, Select, Card, Tag, Avatar, Image, Tooltip, Popover, Modal, Empty, Spin, Result} from 'antd';
 import {TwitterOutlined, MediumOutlined, LinkOutlined, PictureOutlined} from '@ant-design/icons';
 import {javaVersions, versionsColors, groupBy, stagesColors, stagesDefinitions, renderTitle, renderItem} from "../utils/data";
 import {useQuery} from "react-query";
+import Masonry from 'react-masonry-css';
+
 
 
 export default function Home() {
@@ -99,7 +101,7 @@ export default function Home() {
                    }}/>
             :
             features.map(({title, description, version, stage, link, tipLink}) =>
-                <Col xs={24} sm={12} md={8} lg={8} xl={6} className='col' key={title}>
+                <div className='col' key={title}>
                     <Card title={title}
                           bordered={false}
                           extra={<>
@@ -110,11 +112,11 @@ export default function Home() {
                               ...tipLink ? [<Tooltip title="Explanation" key={0}><PictureOutlined onClick={() => handleTipVisible(tipLink)}/></Tooltip>] : [],
                               <Tooltip title="Official Documentation" key={1}><a href={link} target="_blank" rel="noreferrer"><LinkOutlined /></a></Tooltip>,
                           ]}
-                          bodyStyle={{height: 'fit-content', padding: '12px', fontFamily: 'Verdana', fontsize: '16px'}}
+                          bodyStyle={{height: 'fit-content', padding: '12px', fontFamily: 'Verdana', fontsize: '16px', textAlign: 'left'}}
                     >
                         {description}
                     </Card>
-                </Col>);
+                </div>);
     }
 
     return (
@@ -174,10 +176,18 @@ export default function Home() {
                     </Select>
                 </div>
 
-                <Row gutter={16} {...(features.length ===0 && {style: {height: '90%', justifyContent: 'center', alignItems: 'center'}})}>
-
+                <Masonry
+                    breakpointCols={{
+                        default: 4,
+                        1199: 3,
+                        1024: 2,
+                        575: 1
+                    }}
+                    className="my-masonry-grid"
+                    columnClassName="my-masonry-grid_column"
+                    {...((features.length ===0 || isLoading) && {style: {height: '90%', justifyContent: 'center', alignItems: 'center'}})}>
                     {content}
-                </Row>
+                </Masonry>
 
                 <Modal
                     centered

@@ -117,6 +117,14 @@ body {
   display: block;
 }
 
+.ant-card-head-title {
+  text-align: left;
+}
+
+.ant-card-head {
+  padding: 0 10px;
+}
+
 .revue-form-field {
   height: 38px;
   width: 300px;
@@ -179,4 +187,18 @@ body {
     height: 24vh;
     padding-top: 8px;
   }
+}
+
+.my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -30px;
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 30px;
+  background-clip: padding-box;
+  text-align: center;
 }
